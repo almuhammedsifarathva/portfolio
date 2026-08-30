@@ -6,7 +6,7 @@ import { Contact } from '@/components/sections/Contact'
 import { Footer } from '@/components/sections/Footer'
 import { Navigation } from '@/components/layout/Navigation'
 import { ScrollProgress } from '@/components/effects/ScrollProgress'
-import './styles/globals.css'
+import '@/styles/globals.css'
 
 function App() {
   return (

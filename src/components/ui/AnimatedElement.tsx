@@ -1,15 +1,14 @@
-import { forwardRef, useRef, ReactNode, HTMLAttributes } from 'react'
+import { forwardRef, useRef, type ComponentPropsWithoutRef, type ReactNode } from 'react'
 import { motion } from 'framer-motion'
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
 import { cn } from '@/lib/utils'
 
-export interface AnimatedElementProps {
+export type AnimatedElementProps = Omit<ComponentPropsWithoutRef<'div'>, 'onDrag' | 'onDragEnd' | 'onDragStart' | 'onAnimationStart'> & {
   animation?: 'fade-in' | 'slide-up' | 'slide-down' | 'slide-left' | 'slide-right' | 'scale-in' | 'blur-in'
   delay?: number
   duration?: number
   triggerOnce?: boolean
-  className?: string
   children?: ReactNode
 }
 
@@ -62,9 +61,10 @@ export const AnimatedElement = forwardRef<HTMLElement, AnimatedElementProps>(
 
 AnimatedElement.displayName = 'AnimatedElement'
 
-export interface StaggerContainerProps extends HTMLAttributes<HTMLDivElement> {
+export type StaggerContainerProps = Omit<ComponentPropsWithoutRef<'div'>, 'onDrag' | 'onDragEnd' | 'onDragStart' | 'onAnimationStart'> & {
   staggerDelay?: number
   animation?: AnimatedElementProps['animation']
+  children?: ReactNode | ((isInView: boolean) => ReactNode)
 }
 
 export const StaggerContainer = forwardRef<HTMLDivElement, StaggerContainerProps>(
