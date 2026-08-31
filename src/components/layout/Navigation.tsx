@@ -43,10 +43,14 @@ export function Navigation() {
   const scrollToSection = (href: string) => {
     const id = href.slice(1)
     const element = document.getElementById(id)
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
-      setIsMobileMenuOpen(false)
-    }
+    if (!element) return
+
+    setIsMobileMenuOpen(false)
+    const navigationHeight = document.querySelector('nav')?.getBoundingClientRect().height ?? 0
+    const targetTop = element.getBoundingClientRect().top + window.scrollY - navigationHeight
+
+    window.scrollTo({ top: Math.max(0, targetTop), behavior: 'smooth' })
+    window.history.replaceState(null, '', href)
   }
 
   return (
