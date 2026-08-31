@@ -45,6 +45,7 @@ export function Navigation() {
     const element = document.getElementById(id)
     if (!element) return
 
+    setActiveSection(id)
     setIsMobileMenuOpen(false)
     const navigationHeight = document.querySelector('nav')?.getBoundingClientRect().height ?? 0
     const targetTop = element.getBoundingClientRect().top + window.scrollY - navigationHeight
