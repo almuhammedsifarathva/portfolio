@@ -48,9 +48,13 @@ export function Navigation() {
     setIsMobileMenuOpen(false)
     const navigationHeight = document.querySelector('nav')?.getBoundingClientRect().height ?? 0
     const targetTop = element.getBoundingClientRect().top + window.scrollY - navigationHeight
+    const root = document.documentElement
+    const previousScrollBehavior = root.style.scrollBehavior
+    root.style.scrollBehavior = 'auto'
 
-    window.scrollTo({ top: Math.max(0, targetTop), behavior: 'smooth' })
+    window.scrollTo({ top: Math.max(0, targetTop), behavior: 'auto' })
     window.history.replaceState(null, '', href)
+    root.style.scrollBehavior = previousScrollBehavior
   }
 
   return (

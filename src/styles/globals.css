@@ -33,7 +33,7 @@
   }
 
   body {
-    @apply bg-background font-ui text-foreground antialiased;
+    @apply overflow-x-clip bg-background font-ui text-foreground antialiased;
     background-image: var(--tw-gradient-stops);
   }
 
