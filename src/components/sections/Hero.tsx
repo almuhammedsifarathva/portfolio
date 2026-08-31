@@ -50,9 +50,9 @@ export function Hero() {
             </motion.div>
 
             <StaggerItem animation="slide-up" delay={0.2}>
-              <h1 id="hero-title" className="font-display text-display-xl text-foreground mb-6">
+              <h1 id="hero-title" className="font-display text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-tight text-foreground mb-6 leading-[1.1]">
                 <span className="block">Hi, I'm</span>
-                <span className="block text-gradient">{siteConfig.name}</span>
+                <span className="block text-gradient break-words">{siteConfig.name}</span>
               </h1>
             </StaggerItem>
 

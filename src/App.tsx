@@ -13,7 +13,7 @@ function App() {
     <>
       <Navigation />
       <ScrollProgress />
-      <main className="min-h-screen">
+      <main className="min-h-screen overflow-x-hidden">
         <Hero />
         <About />
         <Skills />
